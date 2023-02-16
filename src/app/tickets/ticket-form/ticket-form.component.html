@@ -5,6 +5,11 @@
     <input class="input-custom" type="text" id="title" [formControlName]="'title'">
   </label>
   <br>
+  <label for="title">
+    Major <br>
+  <input class="input-custom" type="text" id="major" [formControlName]="'major'">
+   </label>
+   <br>
   <label for="description">
     Description <br>
     <input class="input-custom" type="text" id="description" [formControlName]="'description'">
@@ -14,4 +19,4 @@
 </form>
 
 <!-- Uncomment below to see your form structure and how it changes-->
-<!--<br><br>{{ticketForm.getRawValue() | json}}-->
+<br><br>{{ticketForm.getRawValue() | json}}

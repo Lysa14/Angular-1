@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="https://kit.fontawesome.com/bbda898781.css" crossorigin="anonymous">
 
 <div class="card ticket" (click)="selectTicket()">
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
@@ -10,5 +9,5 @@
   <p *ngIf = "major == 'science' " ><i class="fa-regular fa-flask">  </i> </p>
   <p *ngIf = "major == 'informatique' " ><i class="fa-solid fa-laptop-file"> </i>  </p>  {{ticket.major}}
   
-
+ <button class="delete">delete</button>
 </div>
