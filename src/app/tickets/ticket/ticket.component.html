@@ -1,6 +1,14 @@
+<link rel="stylesheet" href="https://kit.fontawesome.com/bbda898781.css" crossorigin="anonymous">
+
 <div class="card ticket" (click)="selectTicket()">
   <!-- we use the {{ }} syntax to display the data, more info: https://angular.io/guide/displaying-data-->
   <h3>{{ticket.title}}</h3>
+  <h1>Un titre</h1>
   <i class="fas fa-calendar-alt"></i> {{ticket.date | date: 'shortTime'}} &nbsp;&nbsp;
-  <i class="far fa-user"></i> {{ticket.author}}
+  <i class="far fa-user"></i> {{ticket.student}}
+  <p *ngIf = "major == 'math' " ><i class="fa-solid fa-square-root-variable"></i> </p> 
+  <p *ngIf = "major == 'science' " ><i class="fa-regular fa-flask">  </i> </p>
+  <p *ngIf = "major == 'informatique' " ><i class="fa-solid fa-laptop-file"> </i>  </p>  {{ticket.major}}
+  
+
 </div>
