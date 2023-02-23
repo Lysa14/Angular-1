@@ -14,12 +14,23 @@ export class TicketListComponent implements OnInit {
   constructor(public ticketService: TicketService) {
     this.ticketService.tickets$.subscribe((tickets) => this.ticketList = tickets);
   }
+  
 
   ngOnInit() {
-  }
+    this.ticketService.getTickets().subscribe(tickets => {
+      this.ticketList = tickets;
+    });
+ 
 
-  ticketHasBeenSelected(hasBeenSelected: boolean) {
-    console.log('event received from child:', hasBeenSelected);
-  }
-
+  } 
+ticketHasBeenSelected(hasBeenSelected: boolean) {
+  console.log('event received from child:', hasBeenSelected);
 }
+ticketHasBeenDelete(HasBeenDelete: Ticket) {
+  console.log('event received from child:', HasBeenDelete);
+}
+deleteTicket(ticket: Ticket) {
+  
+  this.ticketList = this.ticketList.filter(t => t !== ticket);
+   }
+  }

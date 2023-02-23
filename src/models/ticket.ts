@@ -1,5 +1,5 @@
 export interface Ticket {
-  title?: string;
+  title?: string;  //peut etre null <?>
   description?: string;
   date?: Date;
   student?: string;

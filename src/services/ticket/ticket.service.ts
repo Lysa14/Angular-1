@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Ticket } from '../../models/ticket';
 import { TICKETS_MOCKED } from '../../mocks/tickets.mock';
 import { BehaviorSubject } from 'rxjs/index';
-
+import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,16 +23,22 @@ export class TicketService {
   constructor() {
   }
 
+  getTickets(): Observable<Ticket[]> {
+    return of(this.ticketList);
+  }
+
   addTicket(ticket: Ticket) {
     // You need here to update the list of ticket and then update our observable (Subject) with the new list
     // More info: https://angular.io/tutorial/toh-pt6#the-searchterms-rxjs-subject
-   
-    this.ticketList.push();
+    this.ticketList.push(ticket);
+    this.tickets$.next(this.ticketList); //observable
   }
  
-  deleteTicket(Ticket){
-
-     this.ticketList.pop();
+  deleteTicket(ticket:Ticket){
+    const index = this.ticketList.indexOf(ticket);
+    if (index >= 0) {
+      this.ticketList.splice(index, 1);
+    }
   }
 
 }
